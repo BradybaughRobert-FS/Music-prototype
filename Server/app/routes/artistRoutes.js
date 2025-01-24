@@ -1,15 +1,20 @@
 const router = require('express').Router();
-const { getAllArtists, getArtistById, createArtist, updateArtist, deleteArtist } = require("../controller/artistController");
-
+const {
+    getAllArtists,
+    getArtistById,
+    createArtist,
+    updateArtist,
+    deleteArtist
+} = require("../controller/artistController");
 
 router.get("/", getAllArtists);
 
 router.get("/:id", getArtistById);
 
-router.post("/", createArtist );
+router.post("/", createArtist);
 
-router.put("/:id", updateArtist );
+router.patch("/:id", updateArtist);  // Use PATCH for partial updates
 
-router.delete("/:id", deleteArtist );
+router.delete("/:id", deleteArtist);
 
-module.exports = router;    
+module.exports = router;
