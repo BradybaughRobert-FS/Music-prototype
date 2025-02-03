@@ -1,6 +1,7 @@
 # Changelog
 
 ## [0.0.1] - 2025-01-20
+
 ### Added
 - Created `server.js` to initialize the HTTP server.
 - Installed the following dependencies:
@@ -28,3 +29,52 @@
 
 ### Fixed
 - Corrected a typo in `routes/index.js` (`req.metod` changed to `req.method`).
+
+---
+
+## [0.0.2] - 2025-01-23
+
+### Added
+- Created a `db` folder inside the `app` directory.
+  - Added a `config.js` file in the `db` folder to handle database configuration.
+- Created a `.env` file in the main `server` directory.
+  - Configured the application to use PORT `5001`.
+  - Configured `MONGOD_URI` to `MONGODB_URI = mongodb://localhost:27017`
+- Installed `mongoose`
+- Created a `models` folder in the `app` folder
+  - Created `Artists.js` file in `models` folder
+
+### Fixed
+- (No specific fixes were listed for this version.)
+
+---
+
+## [0.0.3] - 2025-01-24
+
+### Added
+- Created `albumController.js` file in `controller` folder
+- Created `albumRoutes.js` file in `routes` folder
+- Created `Album.js` file in `models` folder
+
+---
+
+## [0.0.4] - 2025-01-31
+
+### Added
+- Implemented album-artist relationship:
+  - Updated `Artist.js` to include an `albums` field referencing `Album`.
+  - Updated `albumController.js` to associate albums with artists when created.
+  - Updated `artistController.js` to populate albums when fetching an artist.
+  - Added `getAlbumsByArtist` function in `albumController.js`.
+  - Updated `albumRoutes.js` to include `/artist/:artistId` for fetching albums by artist.
+  - Updated `artistRoutes.js` to include `/artist/:id/albums` for fetching an artist with their albums.
+
+- Started front-end development:
+  - Created `client` folder and initialized Vite using `npm create vite@latest client`.
+  - Installed dependencies with `npm i` and started the development server using `npm run dev`.
+  - Installed `react-router-dom`, `axios`, and `tailwindcss` for front-end functionality.
+  - Set up basic React Router navigation in `src/main.jsx` and `src/App.jsx`.
+
+### Fixed
+- Ensured API endpoints return properly formatted responses.
+- Fixed incorrect model imports in some controllers.
