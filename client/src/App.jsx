@@ -10,17 +10,17 @@ function App() {
 
     try {
       const response = await API.fetchArtists();
-      console.log("From our API!", response);
+      console.log("From API:", response);
     } catch (error) {
       console.error("Error fetching artists:", error);
     }
   };
 
   return (
-    <>
+    <div>
       <h1>Artist Search</h1>
       <SearchBar onSubmit={handleSearch} />
-    </>
+    </div>
   );
 }
 
