@@ -3,7 +3,7 @@ import { useState } from "react";
 function SearchBar({ onSubmit }) {
   const [term, setTerm] = useState("");
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     console.log("event.target.value:", event.target.value);
     setTerm(event.target.value);
   };
@@ -20,10 +20,10 @@ function SearchBar({ onSubmit }) {
           value={term}
           onChange={handleChange}
         />
-        {term.length < 3 && (
-          <p>Search term must be at least 3 characters</p>
-        )}
-        <button type="submit">Search</button>
+        {term.length < 3 && <p>Search term must be at least 3 characters</p>}
+        <button type="submit">
+          Search
+        </button>
       </form>
     </>
   );

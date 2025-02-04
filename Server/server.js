@@ -1,20 +1,14 @@
-require("dotenv").config();
-const express = require("express"); // Ensure Express is required
-const app = require("./app");       // Assuming this sets up routes and middleware
+require ("dotenv").config();
+const app = require("./app");
 const connectDB = require("./app/db/config");
 const cors = require("cors");
-
-app.use(cors({
-  origin: "http://localhost:5173",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
-}));
+app.use(cors());
 
 
 connectDB();
 
-const PORT = process.env.PORT || 5001; // Changed to match your API port
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on ${PORT}`);
 });
